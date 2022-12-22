@@ -15,9 +15,11 @@ class TodoViewSet(viewsets.ModelViewSet):
     serializer_class = TodoSerializer
     pagination_class = StandardResultsSetPagination
     filter_backends = [filters.SearchFilter, filters.OrderingFilter]
+    # permission_classes = [IsAuthenticated]
 
     search_fields = ['title', 'body']
     ordering = ('-id')
+    throttle_scope = 'get'
 
 
 class DeleteAllTodo(APIView):

@@ -10,8 +10,9 @@ class TodoViewSet(viewsets.ModelViewSet):
     serializer_class = TodoV4Serializer
     pagination_class = StandardResultsSetPagination
     filter_backends = [filters.SearchFilter, filters.OrderingFilter]
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
 
     search_fields = ['author__id']
+    # search_fields = ['title', 'body']
     ordering = ('-id')
     throttle_scope = 'get'
